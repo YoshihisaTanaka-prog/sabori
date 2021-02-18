@@ -2,7 +2,7 @@
 
 
 
-<%= form_for @performer do |f| %>
+<%= form_for(@performer, url: program_path, method: :patch) do |f| %>
     <%= f.hidden_field :event_id, value: @performer.event_id %>
     <%= f.hidden_field :event_program_id, value: @performer.event_program_id %>
     <%= f.label :organization, "所属" %>
