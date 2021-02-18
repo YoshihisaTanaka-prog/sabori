@@ -1,0 +1,22 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "meetings") do |sheet|
+    sheet.add_row [ "event_id", "fiscal_year", "event_number", "field", "theme", "keyword", "organization", "start", "end", "place", "url" ]
+    @meetings.each do |m|
+        sheet.add_row [ m.eventId, m.fiscalYear, m.eventNumber, m.field, m.title, m.keyword, m.organization, m.start, m.end, m.place, m.url ]
+    end
+end
+
+wb.add_worksheet(name: "event_programs") do |sheet|
+    sheet.add_row [ "id", "event_id", "title", "date", "start", "end" ]
+    @programs.each do |p|
+        sheet.add_row [ p.event_program_id, p.event_id, p.title, p.date, p.start, p.end ]
+    end
+end
+
+wb.add_worksheet(name: "event_performers") do |sheet|
+    sheet.add_row [ "event_id", "event_program_id", "organization", "role", "lastname", "firstname" ]
+    @performers.each do |p|
+        sheet.add_row [ p.event_id, p.event_program_id, p.organization, p.role, p.lastname, p.firstname ]
+    end
+end

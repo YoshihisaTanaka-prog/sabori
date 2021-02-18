@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_program_id: 1
+  event_id: 1
+  title: MyString
+  date: 2021-02-18
+  start: MyString
+  end: MyString
+
+two:
+  event_program_id: 1
+  event_id: 1
+  title: MyString
+  date: 2021-02-18
+  start: MyString
+  end: MyString

@@ -1,0 +1,72 @@
+<%= form_with(model: meeting, local: true) do |form| %>
+  <% if meeting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(meeting.errors.count, "error") %> prohibited this meeting from being saved:</h2>
+
+      <ul>
+        <% meeting.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :eventId %>
+    <%= form.number_field :eventId %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fiscalYear %>
+    <%= form.number_field :fiscalYear %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eventNumber %>
+    <%= form.text_field :eventNumber %>
+  </div>
+
+  <div class="field">
+    <%= form.label :field %>
+    <%= form.text_field :field %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :keyword %>
+    <%= form.text_field :keyword %>
+  </div>
+
+  <div class="field">
+    <%= form.label :organization %>
+    <%= form.text_field :organization %>
+  </div>
+
+  <div class="field">
+    <%= form.label :stard %>
+    <%= form.date_select :stard %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end %>
+    <%= form.date_select :end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :place %>
+    <%= form.text_field :place %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

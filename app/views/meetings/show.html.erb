@@ -1,0 +1,106 @@
+<h1>Event</h1>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+<tr>
+<td>
+  <strong>Eventid:</strong>
+  <%= @meeting.eventId %>
+</td>
+
+<td>
+  <strong>Fiscalyear:</strong>
+  <%= @meeting.fiscalYear %>
+</td>
+
+<td>
+  <strong>Eventnumber:</strong>
+  <%= @meeting.eventNumber %>
+</td>
+</tr><tr>
+<td>
+  <strong>Field:</strong>
+  <%= @meeting.field %>
+</td>
+
+<td>
+  <strong>Title:</strong>
+  <%= @meeting.title %>
+</td>
+
+<td>
+  <strong>Keyword:</strong>
+  <%= @meeting.keyword %>
+</td>
+</tr><tr>
+<td>
+  <strong>Organization:</strong>
+  <%= @meeting.organization %>
+</td>
+
+<td>
+  <strong>Start:</strong>
+  <%= @meeting.start %>
+</td>
+
+<td>
+  <strong>End:</strong>
+  <%= @meeting.end %>
+</td>
+</tr>
+<td>
+  <strong>Place:</strong>
+  <%= @meeting.place %>
+</td>
+
+<td>
+  <strong>Url:</strong>
+  <%= @meeting.url %>
+</td>
+<td></td>
+</tr>
+</table>
+
+<br><br>
+
+<%= link_to 'Edit', edit_meeting_path(@meeting) %> |
+<%= link_to 'Back', meetings_path %>
+
+<br><br>
+
+<h2>Programs</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event program</th>
+      <th>Event</th>
+      <th>Title</th>
+      <th>Date</th>
+      <th>Start</th>
+      <th>End</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @programs.each do |program| %>
+      <tr>
+        <td><%= program.event_program_id %></td>
+        <td><%= program.event_id %></td>
+        <td><%= program.title %></td>
+        <td><%= program.date %></td>
+        <td><%= program.start %></td>
+        <td><%= program.end %></td>
+        <td><%= link_to 'Show', program %></td>
+        <td><%= link_to 'Edit', edit_program_path(program) %></td>
+        <td><%= link_to 'Destroy', program, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Program', new_program_path( :event_id => @meeting.eventId) %>

@@ -1,0 +1,27 @@
+<%= form_with(model: excel1, local: true) do |form| %>
+  <% if excel1.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(excel1.errors.count, "error") %> prohibited this excel1 from being saved:</h2>
+
+      <ul>
+        <% excel1.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_field :body %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

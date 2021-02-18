@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @performer.event_id %>
+</p>
+
+<p>
+  <strong>Organization:</strong>
+  <%= @performer.organization %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @performer.role %>
+</p>
+
+<p>
+  <strong>Lastname:</strong>
+  <%= @performer.lastname %>
+</p>
+
+<p>
+  <strong>Firstname:</strong>
+  <%= @performer.firstname %>
+</p>
+
+<%= link_to 'Edit', edit_performer_path(@performer) %> |
+<%= link_to 'Back', "/programs/" + @program.id.to_s %>

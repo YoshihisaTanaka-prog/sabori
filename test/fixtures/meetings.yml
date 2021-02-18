@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  eventId: 1
+  fiscalYear: 1
+  eventNumber: MyString
+  field: MyString
+  title: MyString
+  keyword: MyString
+  organization: MyString
+  stard: 2021-02-18
+  end: 2021-02-18
+  place: MyString
+  url: MyString
+
+two:
+  eventId: 1
+  fiscalYear: 1
+  eventNumber: MyString
+  field: MyString
+  title: MyString
+  keyword: MyString
+  organization: MyString
+  stard: 2021-02-18
+  end: 2021-02-18
+  place: MyString
+  url: MyString
