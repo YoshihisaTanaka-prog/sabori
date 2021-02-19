@@ -34,7 +34,7 @@
         <td><%= meeting.eventNumber %></td>
         <td><%= meeting.field %></td>
         <% if meeting.url == "" %>
-          <td><%= meeting.title %></td>
+          <td style="color: #f00;"><%= meeting.title %></td>
         <% else %>
           <td><a href="<%= meeting.url %>"><%= meeting.title %></a></td>
         <% end %>
