@@ -10,7 +10,7 @@
   </head>
 
   <body>
-    <%= link_to "トップへ", root_path %><br><br>
+    <%= link_to "エクセル出力", meetings_path(format: :xlsx) %><br><br>
     <%= yield %>
   </body>
 </html>
