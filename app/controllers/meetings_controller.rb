@@ -68,6 +68,34 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1 or /meetings/1.json
   def destroy
+    programs = Program.where(event_id: @meeting.eventId..Float::INFINITY)
+    programs.each do |p|
+      if p.event_id == @meeting.eventId
+        p.destroy
+      elsif p.event_id > @meeting.eventId
+        p.event_id -= 1
+        p.save
+      end
+    end
+
+    performers = Performer.where(event_id: @meeting.eventId..Float::INFINITY)
+    performers.each do |p|
+      if p.event_id == @meeting.eventId
+        p.destroy
+      elsif p.event_id > @meeting.eventId
+        p.event_id -= 1
+        p.save
+      end
+    end
+
+    meetings = Meeting.where(eventId: @meeting.eventId..Float::INFINITY)
+    meetings.each do |m|
+      if m.eventId > @meeting.eventId
+        m.eventId -= 1
+        m.save
+      end
+    end
+
     @meeting.destroy
     respond_to do |format|
       format.html { redirect_to meetings_url, notice: "Meeting was successfully destroyed." }
