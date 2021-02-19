@@ -1,6 +1,6 @@
 <h1>New Performer</h1>
 
-<%= form_for(@performer) do |f| %>
+<%= form_for(@performer, url: performers_path, method: :post) do |f| %>
     <%= f.hidden_field :event_id, value: params["eventId"] %>
     <%= f.hidden_field :event_program_id, value: params["event_program_id"] %>
     <%= f.label :organization, "所属" %>
