@@ -10,7 +10,7 @@ class MeetingsController < ApplicationController
       format.html {
         min = current_user.start_number
         max = current_user.start_number + 98
-        @meetings = Meeting.where(eventId: min..max)
+        @meetings = Meeting.where(eventId: min - 1..max)
         @num1 = Meeting.where(eventId: 101..199).length
         @num2 = Meeting.where(eventId: 201..299).length
         @num3 = Meeting.where(eventId: 301..399).length
@@ -20,7 +20,7 @@ class MeetingsController < ApplicationController
         # ファイル名をここで指定する（動的にファイル名を変更できる）
         min = current_user.start_number
         max = current_user.start_number + 98
-        @meetings = Meeting.where(eventId: min..max)
+        @meetings = Meeting.where(eventId: min - 1..max)
         @programs = Program.where(event_id: min..max)
         @performers = Performer.where(event_id: min..max)
         response.headers['Content-Disposition'] = "attachment; filename=(新フォーマット)講演リスト.xlsx"
