@@ -1,6 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Meetings</h1>
+<h1>Meetings</h1><br>
+<% if current_user.id == 1 %>
+  |<%= @num1 %>|<%= @num2 %>|<%= @num3 %>|<%= @num4 %>|
+<% end %>
 <br>
 <%= link_to "ユーザー情報の編集", edit_user_registration_path %>
 <br><br>
