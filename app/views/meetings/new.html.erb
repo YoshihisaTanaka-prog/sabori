@@ -3,7 +3,7 @@
 <%= form_for(@meeting, url: meetings_path, method: :post) do |f| %>
     <%= f.hidden_field :eventId, value: @num %>
     <%= f.label :fiscalYear, "開催年度" %>
-    <%= f.number_field :fiscalyear, value: 2020 %><br>
+    <%= f.number_field :fiscalYear, value: 2020 %><br>
     <%= f.label :eventNumber, "イベント番号" %>
     <%= f.text_field :eventNumber, value: "" %><br>
     <%= f.label :field, "分野" %>
