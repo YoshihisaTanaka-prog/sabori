@@ -36,7 +36,9 @@ class MeetingsController < ApplicationController
 
   # GET /meetings/new
   def new
-    @num = current_user.start_number + Meeting.all.length
+    min = current_user.start_number
+    max = current_user.start_number + 98
+    @num = current_user.start_number + Meeting.where(eventId: min..max).length
     @meeting = Meeting.new
   end
 
@@ -74,7 +76,8 @@ class MeetingsController < ApplicationController
 
   # DELETE /meetings/1 or /meetings/1.json
   def destroy
-    programs = Program.where(event_id: @meeting.eventId..Float::INFINITY)
+    max = current_user.start_number + 98
+    programs = Program.where(event_id: @meeting.eventId..max)
     programs.each do |p|
       if p.event_id == @meeting.eventId
         p.destroy
@@ -84,7 +87,7 @@ class MeetingsController < ApplicationController
       end
     end
 
-    performers = Performer.where(event_id: @meeting.eventId..Float::INFINITY)
+    performers = Performer.where(event_id: @meeting.eventId..max)
     performers.each do |p|
       if p.event_id == @meeting.eventId
         p.destroy
@@ -94,7 +97,7 @@ class MeetingsController < ApplicationController
       end
     end
 
-    meetings = Meeting.where(eventId: @meeting.eventId..Float::INFINITY)
+    meetings = Meeting.where(eventId: @meeting.eventId..max)
     meetings.each do |m|
       if m.eventId > @meeting.eventId
         m.eventId -= 1

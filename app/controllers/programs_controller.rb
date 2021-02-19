@@ -57,9 +57,10 @@ class ProgramsController < ApplicationController
 
   # DELETE /programs/1 or /programs/1.json
   def destroy
+    max = current_user.start_number + 98
     @meeting = Meeting.where(eventId: @program.event_id).first
 
-    performers = Performer.where(event_id: @program.event_id, event_program_id: @program.event_program_id..Float::INFINITY)
+    performers = Performer.where(event_id: @program.event_id, event_program_id: @program.event_program_id..max)
     performers.each do |p|
       if p.event_program_id == @program.event_program_id
         p.destroy
@@ -69,7 +70,7 @@ class ProgramsController < ApplicationController
       end
     end
 
-    programs = Program.where(event_id: @program.event_id, event_program_id: @program.event_program_id..Float::INFINITY)
+    programs = Program.where(event_id: @program.event_id, event_program_id: @program.event_program_id..max)
     programs.each do |p|
       if p.event_program_id == @program.event_program_id
         p.destroy
