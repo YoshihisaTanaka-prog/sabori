@@ -6,7 +6,7 @@
     <%= f.label :title, "タイトル" %>
     <%= f.text_field :title, value: "" %>
     <%= f.label :date, "日付" %>
-    <%= f.date_field :date %>
+    <%= f.date_field :date, value: @meeting.start %>
     <%= f.label :start, "開始時間" %>
     <%= f.time_field :start, value: "12:00" %>
     <%= f.label :end, "終了時間" %>
