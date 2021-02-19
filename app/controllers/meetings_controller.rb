@@ -11,10 +11,10 @@ class MeetingsController < ApplicationController
         min = current_user.start_number
         max = current_user.start_number + 98
         @meetings = Meeting.where(eventId: min - 1..max)
-        @num1 = Meeting.where(eventId: 101..199).length
-        @num2 = Meeting.where(eventId: 201..299).length
-        @num3 = Meeting.where(eventId: 301..399).length
-        @num4 = Meeting.where(eventId: 401..499).length
+        @num1 = Meeting.where(eventId: 100..199).length
+        @num2 = Meeting.where(eventId: 200..299).length
+        @num3 = Meeting.where(eventId: 300..399).length
+        @num4 = Meeting.where(eventId: 400..499).length
       }
       format.xlsx {
         # ファイル名をここで指定する（動的にファイル名を変更できる）
