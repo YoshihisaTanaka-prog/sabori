@@ -11,7 +11,7 @@ class ProgramsController < ApplicationController
   # GET /programs/1 or /programs/1.json
   def show
     @meeting = Meeting.where(eventId: @program.event_id).first
-    @performers = Performer.where(event_id: @program.event_id, event_program_id: @program.event_program_id).order(id: "DESC")
+    @performers = Performer.where(event_id: @program.event_id, event_program_id: @program.event_program_id).order(:id)
   end
 
   # GET /programs/new
