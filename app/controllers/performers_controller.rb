@@ -31,7 +31,7 @@ class PerformersController < ApplicationController
     # render plain: @performer.id
     respond_to do |format|
       if @performer.save
-        format.html { redirect_to "/programs/" + @program.id.to_s +"/edit", notice: "Performer was successfully created." }
+        format.html { redirect_to "/programs/" + @program.id.to_s + "/edit", notice: "Performer was successfully created." }
         format.json { render :show, status: :created, location: @performer }
       else
         format.html { render :new, status: :unprocessable_entity }
