@@ -38,6 +38,11 @@
 <%= link_to 'Edit', edit_program_path(@program) %> |
 <%= link_to 'Back', "/meetings/" + @meeting.id.to_s %>
 
+
+<br><br>
+
+<%= link_to 'New Performer', new_performer_path(eventId: @program.event_id, event_program_id: @program.event_program_id) %>
+
 <br><br>
 
 <p id="notice"><%= notice %></p>

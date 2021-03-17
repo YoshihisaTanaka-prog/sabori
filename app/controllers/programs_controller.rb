@@ -32,7 +32,7 @@ class ProgramsController < ApplicationController
     @meeting = Meeting.where(eventId: @program.event_id).first
     respond_to do |format|
       if @program.save
-        format.html { redirect_to "/meetings/" + @meeting.id.to_s, notice: "Program was successfully created." }
+        format.html { redirect_to "/programs/" + @program.id.to_s, notice: "Program was successfully created." }
         format.json { render :show, status: :created, location: @program }
       else
         format.html { render :new, status: :unprocessable_entity }
