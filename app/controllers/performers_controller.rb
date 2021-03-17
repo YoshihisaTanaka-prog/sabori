@@ -27,11 +27,10 @@ class PerformersController < ApplicationController
   # POST /performers or /performers.json
   def create
     @performer = Performer.new(performer_params)
-    @program = Program.where(event_id: @performer.event_id.to_i, event_program_id: @performer.event_program_id.to_i).first
     # render plain: @performer.id
     respond_to do |format|
       if @performer.save
-        format.html { redirect_to "/performers/" + @program.id.to_s + "/edit", notice: "Performer was successfully created." }
+        format.html { redirect_to "/performers/" + @performer.id.to_s + "/edit", notice: "Performer was successfully created." }
         format.json { render :show, status: :created, location: @performer }
       else
         format.html { render :new, status: :unprocessable_entity }
