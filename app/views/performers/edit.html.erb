@@ -1,20 +1,33 @@
 <h1>Editing Performer</h1>
-
-
-
 <%= form_for(@performer, url: performer_path, method: :patch) do |f| %>
     <%= f.hidden_field :event_id, value: @performer.event_id %>
     <%= f.hidden_field :event_program_id, value: @performer.event_program_id %>
     <%= f.label :organization, "所属" %>
-    <%= f.text_field :organization, value: @performer.organization %>
+    <%= f.text_field :organization, value: @performer.organization, id:"org" %>
     <%= f.label :role, "役職" %>
     <%= f.text_field :role, value: @performer.role %>
     <%= f.label :lastname, "姓" %>
-    <%= f.text_field :lastname, value: @performer.lastname %>
+    <%= f.text_field :lastname, value: @performer.lastname, id:"lname" %>
     <%= f.label :firstname, "名" %>
-    <%= f.text_field :firstname, value: @performer.firstname %><br>
-    <%= f.submit "作成" %>
+    <%= f.text_field :firstname, value: @performer.firstname, id:"fname" %>
+    <input type="button" value="検索" onclick="search()"><br>
+    <%= f.submit "編集" %>
 <% end %>
 <br>
 <%= link_to 'Show', @performer %> |
 <%= link_to 'Back', "/programs/" + @program.id.to_s %>
+<script>
+function search(){
+    const textbox1 = document.getElementById("lname")
+    const textbox2 = document.getElementById("fname")
+    const textbox3 = document.getElementById("org")
+    const name = textbox1.value + textbox2.value
+    const org = textbox3.value
+    if (org == "") {
+        window.open('https://www.google.com/search?q='+name, '_blank');
+    }
+    else{
+    	window.open('https://www.google.com/search?q='+name+'+'+org, '_blank');
+    }
+}
+</script>
