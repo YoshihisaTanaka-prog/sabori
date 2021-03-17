@@ -36,7 +36,8 @@
 <br><br>
 
 <%= link_to 'Edit', edit_program_path(@program) %> |
-<%= link_to 'Back', "/meetings/" + @meeting.id.to_s %>
+<%= link_to 'Back', "/meetings/" + @meeting.id.to_s %> |
+<%= link_to 'Next Program', new_program_path( :event_id => @meeting.eventId) %>
 
 
 <br><br>
